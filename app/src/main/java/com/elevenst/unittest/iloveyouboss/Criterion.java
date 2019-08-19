@@ -8,17 +8,19 @@
 ***/
 package com.elevenst.unittest.iloveyouboss;
 
-import java.util.*;
+public class Criterion implements Scoreable {
+   private Weight weight;
+   private Answer answer;
+   private int score;
 
-public class ScoreCollection {
-   private List<Scoreable> scores = new ArrayList<>();
-   
-   public void add(Scoreable scoreable) {
-      scores.add(scoreable);
+   public Criterion(Answer answer, Weight weight) {
+      this.answer = answer;
+      this.weight = weight;
    }
    
-   public int arithmeticMean() {
-      int total = scores.stream().mapToInt(Scoreable::getScore).sum();
-      return total / scores.size();
-   }
+   public Answer getAnswer() { return answer; }
+   public Weight getWeight() { return weight; }
+   
+   public void setScore(int score) { this.score = score; }
+   public int getScore() { return score; }
 }

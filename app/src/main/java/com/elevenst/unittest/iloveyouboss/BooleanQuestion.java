@@ -8,17 +8,14 @@
 ***/
 package com.elevenst.unittest.iloveyouboss;
 
-import java.util.*;
 
-public class ScoreCollection {
-   private List<Scoreable> scores = new ArrayList<>();
-   
-   public void add(Scoreable scoreable) {
-      scores.add(scoreable);
+public class BooleanQuestion extends Question {
+   public BooleanQuestion(int id, String text) {
+      super(id, text, new String[] { "No", "Yes" });
    }
-   
-   public int arithmeticMean() {
-      int total = scores.stream().mapToInt(Scoreable::getScore).sum();
-      return total / scores.size();
+
+   @Override
+   public boolean match(int expected, int actual) {
+      return expected == actual;
    }
 }

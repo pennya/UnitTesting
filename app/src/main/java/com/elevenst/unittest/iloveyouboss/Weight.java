@@ -8,17 +8,15 @@
 ***/
 package com.elevenst.unittest.iloveyouboss;
 
-import java.util.*;
+public enum Weight {
+   MustMatch(Integer.MAX_VALUE),
+   VeryImportant(5000),
+   Important(1000),
+   WouldPrefer(100),
+   DontCare(0);
+   
+   private int value;
 
-public class ScoreCollection {
-   private List<Scoreable> scores = new ArrayList<>();
-   
-   public void add(Scoreable scoreable) {
-      scores.add(scoreable);
-   }
-   
-   public int arithmeticMean() {
-      int total = scores.stream().mapToInt(Scoreable::getScore).sum();
-      return total / scores.size();
-   }
+   Weight(int value) { this.value = value; }
+   public int getValue() { return value; }
 }
